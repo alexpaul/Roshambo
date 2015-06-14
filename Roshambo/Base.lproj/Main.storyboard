@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Rock Paper Scissors View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="RockPaperScissorsViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,140 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9G-01-BRe">
+                                <rect key="frame" x="263" y="115" width="75" height="65"/>
+                                <state key="normal" image="rock">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XVP-Zm-AL9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Px4-Rz-I6R">
+                                <rect key="frame" x="263" y="240" width="75" height="65"/>
+                                <state key="normal" image="paper">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eco-WW-1Az"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Rock, Paper or Scissors to Play" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6F-dO-KF1">
+                                <rect key="frame" x="161" y="78" width="278" height="17"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AW2-YE-an2">
+                                <rect key="frame" x="278" y="188" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="012-5X-eX3"/>
+                                    <constraint firstAttribute="height" constant="44" id="czZ-Qh-8MC"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTo-QD-XwV">
+                                <rect key="frame" x="278" y="313" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="DG0-Wj-NmL"/>
+                                    <constraint firstAttribute="height" constant="44" id="YaL-Rr-h0c"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjD-8t-EP1">
+                                <rect key="frame" x="263" y="365" width="75" height="65"/>
+                                <state key="normal" image="scissors">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Tbv-ig-tnL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z9G-01-BRe" firstAttribute="centerX" secondItem="N6F-dO-KF1" secondAttribute="centerX" constant="0.5" id="6Ae-BC-Xb9"/>
+                            <constraint firstItem="Px4-Rz-I6R" firstAttribute="centerX" secondItem="MTo-QD-XwV" secondAttribute="centerX" constant="0.5" id="7du-Sx-6lN"/>
+                            <constraint firstItem="AW2-YE-an2" firstAttribute="centerX" secondItem="z9G-01-BRe" secondAttribute="centerX" constant="-0.5" id="9dG-aH-223"/>
+                            <constraint firstItem="Px4-Rz-I6R" firstAttribute="top" secondItem="AW2-YE-an2" secondAttribute="bottom" constant="8" symbolic="YES" id="ES7-zk-nTp"/>
+                            <constraint firstItem="MTo-QD-XwV" firstAttribute="top" secondItem="Px4-Rz-I6R" secondAttribute="bottom" constant="8" id="F54-AV-LNm"/>
+                            <constraint firstAttribute="centerX" secondItem="N6F-dO-KF1" secondAttribute="centerX" id="GEw-DE-32C"/>
+                            <constraint firstItem="AW2-YE-an2" firstAttribute="top" secondItem="z9G-01-BRe" secondAttribute="bottom" constant="8" id="JAl-6Q-iqs"/>
+                            <constraint firstItem="MTo-QD-XwV" firstAttribute="centerX" secondItem="JjD-8t-EP1" secondAttribute="centerX" constant="-0.5" id="NCp-ag-8fg"/>
+                            <constraint firstItem="z9G-01-BRe" firstAttribute="top" secondItem="N6F-dO-KF1" secondAttribute="bottom" constant="20" id="Rp4-tu-aO3"/>
+                            <constraint firstItem="N6F-dO-KF1" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="58" id="T6a-VA-6Rv"/>
+                            <constraint firstAttribute="centerY" secondItem="N6F-dO-KF1" secondAttribute="centerY" constant="213.5" id="eEN-Qm-wFd"/>
+                            <constraint firstItem="Px4-Rz-I6R" firstAttribute="centerX" secondItem="AW2-YE-an2" secondAttribute="centerX" constant="0.5" id="nIr-Q1-y8B"/>
+                            <constraint firstItem="JjD-8t-EP1" firstAttribute="top" secondItem="MTo-QD-XwV" secondAttribute="bottom" constant="8" symbolic="YES" id="uvT-Oc-om4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="Wnl-Va-3al" kind="show" identifier="userPlayed" id="qmi-vn-ISh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="681" y="378"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="cFN-i8-Rc1">
+            <objects>
+                <viewController storyboardIdentifier="ResultsViewController" id="Wnl-Va-3al" customClass="ResultsViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a7F-q7-zZb"/>
+                        <viewControllerLayoutGuide type="bottom" id="krH-10-kVh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Tl-CW-4ao">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4h-pt-AEU">
+                                <rect key="frame" x="273" y="78" width="55" height="21"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wb2-f7-1Fl">
+                                <rect key="frame" x="180" y="107" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="I4z-Xf-5bp"/>
+                                    <constraint firstAttribute="width" constant="240" id="szm-sO-FMi"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isV-Fn-A7z">
+                                <rect key="frame" x="261" y="383" width="78" height="27"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="15"/>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgainButtonPressed:" destination="Wnl-Va-3al" eventType="touchUpInside" id="ZuR-qW-edT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="isV-Fn-A7z" firstAttribute="top" secondItem="Wb2-f7-1Fl" secondAttribute="bottom" constant="36" id="3gn-f3-nGN"/>
+                            <constraint firstItem="s4h-pt-AEU" firstAttribute="top" secondItem="a7F-q7-zZb" secondAttribute="bottom" constant="58" id="7nS-F8-pWp"/>
+                            <constraint firstAttribute="centerY" secondItem="s4h-pt-AEU" secondAttribute="centerY" constant="211.5" id="99H-qB-4sO"/>
+                            <constraint firstItem="Wb2-f7-1Fl" firstAttribute="centerX" secondItem="s4h-pt-AEU" secondAttribute="centerX" constant="-0.5" id="P7S-0p-i4Q"/>
+                            <constraint firstItem="Wb2-f7-1Fl" firstAttribute="centerX" secondItem="isV-Fn-A7z" secondAttribute="centerX" id="Wej-fB-ei3"/>
+                            <constraint firstAttribute="centerX" secondItem="s4h-pt-AEU" secondAttribute="centerX" constant="-0.5" id="cBV-0v-Wyl"/>
+                            <constraint firstItem="Wb2-f7-1Fl" firstAttribute="top" secondItem="s4h-pt-AEU" secondAttribute="bottom" constant="8" id="d5D-Az-DT6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultImageView" destination="Wb2-f7-1Fl" id="ckI-io-VkL"/>
+                        <outlet property="resultLabel" destination="s4h-pt-AEU" id="hyt-Bi-iou"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sNe-cw-f5A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1412" y="378"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="paper" width="75" height="65"/>
+        <image name="rock" width="75" height="65"/>
+        <image name="scissors" width="75" height="65"/>
+    </resources>
 </document>
