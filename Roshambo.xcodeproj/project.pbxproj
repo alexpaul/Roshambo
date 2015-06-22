@@ -14,6 +14,9 @@
 		57A7B1FA1B2CE77100D62F45 /* RoshamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7B1F91B2CE77100D62F45 /* RoshamboTests.swift */; };
 		57A7B2121B2CE8F700D62F45 /* RockPaperScissorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7B2111B2CE8F700D62F45 /* RockPaperScissorsViewController.swift */; };
 		57A7B2141B2CEF8B00D62F45 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7B2131B2CEF8B00D62F45 /* ResultsViewController.swift */; };
+		57A7B2541B37714300D62F45 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7B2531B37714300D62F45 /* HistoryViewController.swift */; };
+		57A7B2561B37806E00D62F45 /* GamePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7B2551B37806E00D62F45 /* GamePlay.swift */; };
+		57A7B2581B37810800D62F45 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A7B2571B37810800D62F45 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,9 @@
 		57A7B1F91B2CE77100D62F45 /* RoshamboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoshamboTests.swift; sourceTree = "<group>"; };
 		57A7B2111B2CE8F700D62F45 /* RockPaperScissorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RockPaperScissorsViewController.swift; sourceTree = "<group>"; };
 		57A7B2131B2CEF8B00D62F45 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		57A7B2531B37714300D62F45 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		57A7B2551B37806E00D62F45 /* GamePlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePlay.swift; sourceTree = "<group>"; };
+		57A7B2571B37810800D62F45 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +85,10 @@
 		57A7B1E01B2CE77000D62F45 /* Roshambo */ = {
 			isa = PBXGroup;
 			children = (
-				57A7B1E31B2CE77000D62F45 /* AppDelegate.swift */,
+				57A7B2591B379F1800D62F45 /* View Controllers */,
+				57A7B25A1B379F4100D62F45 /* Model */,
 				57A7B1E71B2CE77000D62F45 /* Main.storyboard */,
-				57A7B2111B2CE8F700D62F45 /* RockPaperScissorsViewController.swift */,
-				57A7B2131B2CEF8B00D62F45 /* ResultsViewController.swift */,
 				57A7B1EA1B2CE77000D62F45 /* Images.xcassets */,
-				57A7B1EC1B2CE77000D62F45 /* LaunchScreen.xib */,
 				57A7B1E11B2CE77000D62F45 /* Supporting Files */,
 			);
 			path = Roshambo;
@@ -93,6 +97,8 @@
 		57A7B1E11B2CE77000D62F45 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				57A7B1EC1B2CE77000D62F45 /* LaunchScreen.xib */,
+				57A7B1E31B2CE77000D62F45 /* AppDelegate.swift */,
 				57A7B1E21B2CE77000D62F45 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -113,6 +119,25 @@
 				57A7B1F81B2CE77100D62F45 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		57A7B2591B379F1800D62F45 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				57A7B2111B2CE8F700D62F45 /* RockPaperScissorsViewController.swift */,
+				57A7B2131B2CEF8B00D62F45 /* ResultsViewController.swift */,
+				57A7B2531B37714300D62F45 /* HistoryViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		57A7B25A1B379F4100D62F45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				57A7B2571B37810800D62F45 /* Result.swift */,
+				57A7B2551B37806E00D62F45 /* GamePlay.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,9 +240,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57A7B2581B37810800D62F45 /* Result.swift in Sources */,
+				57A7B2561B37806E00D62F45 /* GamePlay.swift in Sources */,
 				57A7B1E41B2CE77000D62F45 /* AppDelegate.swift in Sources */,
 				57A7B2121B2CE8F700D62F45 /* RockPaperScissorsViewController.swift in Sources */,
 				57A7B2141B2CEF8B00D62F45 /* ResultsViewController.swift in Sources */,
+				57A7B2541B37714300D62F45 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +441,7 @@
 				57A7B1FF1B2CE77100D62F45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		57A7B2001B2CE77100D62F45 /* Build configuration list for PBXNativeTarget "RoshamboTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +450,7 @@
 				57A7B2021B2CE77100D62F45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

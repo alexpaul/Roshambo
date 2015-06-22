@@ -16,8 +16,10 @@ class RockPaperScissorsViewController: UIViewController {
         case Scissors = "Scissors"
     }
     
-    var userPlayed: String?
+    var userPlayed: String!
+    var gamePlay: GamePlay!
     var resultsVC: ResultsViewController!
+    var history = [Result]() // array of results
     
     @IBAction func playButtonPressed(sender: UIButton) {
         
@@ -45,8 +47,19 @@ class RockPaperScissorsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "userPlayed"{
             resultsVC = segue.destinationViewController as! ResultsViewController
-            resultsVC.userPlayed = self.userPlayed
+            gamePlay = GamePlay()
+            resultsVC.result = gamePlay.resultOfRockPaperScissorsGame(self.userPlayed)
+            
+            if let result = gamePlay.resultOfRockPaperScissorsGame(self.userPlayed){
+                history.append(result) // add result to history array
+            }
         }
     }
+    
+    @IBAction func historyButtonPressed(sender: UIButton) {
+        var historyVC = self.storyboard?.instantiateViewControllerWithIdentifier("HistoryViewController") as! HistoryViewController
+        self.presentViewController(historyVC, animated: true, completion: nil)
+    }
+    
 
 }
