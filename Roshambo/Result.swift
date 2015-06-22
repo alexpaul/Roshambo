@@ -12,6 +12,7 @@ import UIKit
 class Result: NSObject {
     var resultString: String!
     var resultImage: UIImage!
+    var winLoseTie: String!
     
     init(resultString: String, resultImage: UIImage){
         self.resultString = resultString

@@ -331,11 +331,44 @@
                                     <action selector="backToGameButtonPressed:" destination="I2E-hW-qKL" eventType="touchUpInside" id="UpW-9K-9T9"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="2m8-EP-KHZ">
+                                <rect key="frame" x="0.0" y="28" width="600" height="456"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoryCell" textLabel="FtZ-cH-03u" detailTextLabel="qL5-SC-rLc" style="IBUITableViewCellStyleSubtitle" id="r4I-Ec-zzl">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r4I-Ec-zzl" id="OFq-DX-DHv">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FtZ-cH-03u">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qL5-SC-rLc">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="I2E-hW-qKL" id="wc7-E0-1ID"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iAN-KF-k3q" firstAttribute="top" secondItem="CuH-1Q-Opq" secondAttribute="bottom" constant="79" id="3k2-aP-gJY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2m8-EP-KHZ" secondAttribute="trailing" constant="-16" id="68m-qW-AYB"/>
+                            <constraint firstItem="2m8-EP-KHZ" firstAttribute="leading" secondItem="uUy-vX-TXY" secondAttribute="leadingMargin" constant="-16" id="EMZ-BT-jwS"/>
+                            <constraint firstItem="CuH-1Q-Opq" firstAttribute="top" secondItem="2m8-EP-KHZ" secondAttribute="bottom" constant="8" id="PV7-S6-kUc"/>
                             <constraint firstAttribute="centerY" secondItem="CuH-1Q-Opq" secondAttribute="centerY" constant="-206.5" id="Qj0-el-vnZ"/>
+                            <constraint firstItem="2m8-EP-KHZ" firstAttribute="top" secondItem="hSC-bN-Nlh" secondAttribute="bottom" constant="8" id="bE2-yW-7F6"/>
                             <constraint firstAttribute="centerX" secondItem="CuH-1Q-Opq" secondAttribute="centerX" id="f9O-L4-8UC"/>
                         </constraints>
                     </view>

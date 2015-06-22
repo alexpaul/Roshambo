@@ -31,6 +31,7 @@ class GamePlay: NSObject {
             // Tie Game
             self.result.resultString = "We got a Tie. You both choose \(userPlayed)"
             self.result.resultImage = UIImage(named: "tie_game")
+            self.result.winLoseTie = "Tie"
             return self.result
         }else {
             switch userPlayed {
@@ -38,6 +39,7 @@ class GamePlay: NSObject {
                 if computerPlayed == "Scissors" {
                     self.result.resultString = "Player Wins! \(userPlayed) wins against \(computerPlayed)"
                     self.result.resultImage = UIImage(named: "RockCrushesScissors")
+                    self.result.winLoseTie = "Win"
                 }else{
                     // Computer Wins
                     self.result = computerWins(computerPlayed, userPlayed: userPlayed)
@@ -46,6 +48,7 @@ class GamePlay: NSObject {
                 if computerPlayed == "Rock" {
                     self.result.resultString = "Player Wins! \(userPlayed) wins against \(computerPlayed)"
                     self.result.resultImage = UIImage(named: "PaperCoversRock")
+                    self.result.winLoseTie = "Win"
                 }else{
                     // Computer Wins
                     self.result = computerWins(computerPlayed, userPlayed: userPlayed)
@@ -54,6 +57,7 @@ class GamePlay: NSObject {
                 if computerPlayed == "Paper" {
                     self.result.resultString = "Player Wins! \(userPlayed) wins agaist \(computerPlayed)"
                     self.result.resultImage = UIImage(named: "ScissorsCutPaper")
+                    self.result.winLoseTie = "Win"
                 }else{
                     // Computer Wins
                     self.result = computerWins(computerPlayed, userPlayed: userPlayed)
@@ -72,6 +76,7 @@ class GamePlay: NSObject {
         // Computer Wins
         self.result.resultString = computerPlayed + " wins against your " + userPlayed
         self.result.resultImage = UIImage(named: "you_lose")
+        self.result.winLoseTie = "Lose"
         
         return self.result
     }
