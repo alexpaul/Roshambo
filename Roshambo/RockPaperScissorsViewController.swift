@@ -48,11 +48,13 @@ class RockPaperScissorsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "userPlayed"{
             resultsVC = segue.destinationViewController as! ResultsViewController
-            gamePlay = GamePlay()
-            resultsVC.result = gamePlay.resultOfRockPaperScissorsGame(self.userPlayed)
             
+            gamePlay = GamePlay() // instance of GamePlay
+            
+            // Play a Game
             if let result = gamePlay.resultOfRockPaperScissorsGame(self.userPlayed){
                 history.append(result) // add the result to history array
+                resultsVC.result = result
             }
         }
     }

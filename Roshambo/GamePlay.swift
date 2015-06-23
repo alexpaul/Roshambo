@@ -18,6 +18,10 @@ class GamePlay: NSObject {
     //var userPlayed: String!
     var result: Result!
     
+    let kWLTLose = "Lose"
+    let kWLTWin = "Win"
+    let kWLTTie = "Tie"
+    
     
     func resultOfRockPaperScissorsGame(userPlayed: String) -> Result?{
         // Generate a random hand for the computer's turn
@@ -31,7 +35,7 @@ class GamePlay: NSObject {
             // Tie Game
             self.result.resultString = "We got a Tie. You both choose \(userPlayed)"
             self.result.resultImage = UIImage(named: "tie_game")
-            self.result.winLoseTie = "Tie"
+            self.result.winLoseTie = kWLTTie
             return self.result
         }else {
             switch userPlayed {
@@ -39,7 +43,7 @@ class GamePlay: NSObject {
                 if computerPlayed == "Scissors" {
                     self.result.resultString = "Player Wins! \(userPlayed) wins against \(computerPlayed)"
                     self.result.resultImage = UIImage(named: "RockCrushesScissors")
-                    self.result.winLoseTie = "Win"
+                    self.result.winLoseTie = kWLTWin
                 }else{
                     // Computer Wins
                     self.result = computerWins(computerPlayed, userPlayed: userPlayed)
@@ -48,7 +52,7 @@ class GamePlay: NSObject {
                 if computerPlayed == "Rock" {
                     self.result.resultString = "Player Wins! \(userPlayed) wins against \(computerPlayed)"
                     self.result.resultImage = UIImage(named: "PaperCoversRock")
-                    self.result.winLoseTie = "Win"
+                    self.result.winLoseTie = kWLTWin
                 }else{
                     // Computer Wins
                     self.result = computerWins(computerPlayed, userPlayed: userPlayed)
@@ -57,7 +61,7 @@ class GamePlay: NSObject {
                 if computerPlayed == "Paper" {
                     self.result.resultString = "Player Wins! \(userPlayed) wins agaist \(computerPlayed)"
                     self.result.resultImage = UIImage(named: "ScissorsCutPaper")
-                    self.result.winLoseTie = "Win"
+                    self.result.winLoseTie = kWLTWin
                 }else{
                     // Computer Wins
                     self.result = computerWins(computerPlayed, userPlayed: userPlayed)
@@ -76,7 +80,7 @@ class GamePlay: NSObject {
         // Computer Wins
         self.result.resultString = computerPlayed + " wins against your " + userPlayed
         self.result.resultImage = UIImage(named: "you_lose")
-        self.result.winLoseTie = "Lose"
+        self.result.winLoseTie = kWLTLose
         
         return self.result
     }
