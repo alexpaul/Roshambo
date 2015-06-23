@@ -85,7 +85,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Tbv-ig-tnL"/>
+                                    <segue destination="Wnl-Va-3al" kind="show" identifier="scissorsPlayed" id="Pas-gL-rVC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ8-ML-6Ht">
@@ -246,7 +246,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <segue destination="Wnl-Va-3al" kind="show" identifier="userPlayed" id="qmi-vn-ISh"/>
+                        <segue destination="Wnl-Va-3al" kind="show" identifier="paperPlayed" id="qmi-vn-ISh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -383,4 +383,7 @@
         <image name="rock" width="75" height="65"/>
         <image name="scissors" width="75" height="65"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qmi-vn-ISh"/>
+    </inferredMetricsTieBreakers>
 </document>

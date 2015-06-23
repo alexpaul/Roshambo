@@ -25,37 +25,22 @@ class RockPaperScissorsViewController: UIViewController {
     @IBAction func playButtonPressed(sender: UIButton) {
         
         switch sender.tag {
-           case 1: self.userPlayed = userOptions.Rock.rawValue
-           case 2: self.userPlayed = userOptions.Paper.rawValue
-           case 3: self.userPlayed = userOptions.Scissors.rawValue
+           case 1: segueOnlyInCode(userOptions.Rock.rawValue) // Rock's Segue is all done ONLY in code
+           case 2: segueInCodeAndStoryborad(userOptions.Paper.rawValue) // Paper's Segue is done using Code and Storyboard
+           // Scissors's Segue is done ONLY with Storyboard
            default: println("Not a Valid Play button")
         }
-        
-        // Uncomment this code if you want to use Storyboard to Present the Results View Controller
-        // Remember to connect segue in Storyboard and name the segue identifier "userPlayed" 
-        self.performSegueWithIdentifier("userPlayed", sender: self)
-        
-        // Uncomment this code if you ONLY want to use code to Present the Results View Controller
-        /*
-        resultsVC = self.storyboard?.instantiateViewControllerWithIdentifier("ResultsViewController") as! ResultsViewController
-        resultsVC.userPlayed = self.userPlayed
-        self.presentViewController(resultsVC, animated: true, completion: nil)
-        */
-        
     }
     
     // Uncomment this code if you want to use Storyboard to Present the Results View Controller
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "userPlayed"{
+        if segue.identifier == "paperPlayed"{
             resultsVC = segue.destinationViewController as! ResultsViewController
-            
-            gamePlay = GamePlay() // instance of GamePlay
-            
-            // Play a Game
-            if let result = gamePlay.resultOfRockPaperScissorsGame(self.userPlayed){
-                history.append(result) // add the result to history array
-                resultsVC.result = result
-            }
+            setupResultsViewController()
+        }else if segue.identifier == "scissorsPlayed" { // Segue ONLY using Storyboard
+            self.userPlayed = userOptions.Scissors.rawValue
+            resultsVC = segue.destinationViewController as! ResultsViewController
+            setupResultsViewController()
         }
     }
     
@@ -63,6 +48,35 @@ class RockPaperScissorsViewController: UIViewController {
         historyVC = self.storyboard?.instantiateViewControllerWithIdentifier("HistoryViewController") as! HistoryViewController
         historyVC.history = self.history
         self.presentViewController(historyVC, animated: true, completion: nil)
+    }
+    
+    func segueOnlyInCode(userPlayed: String){
+        resultsVC = self.storyboard?.instantiateViewControllerWithIdentifier("ResultsViewController") as! ResultsViewController
+        
+        gamePlay = GamePlay() // instance of GamePlay
+        
+        // Play a Game
+        if let result = gamePlay.resultOfRockPaperScissorsGame(userPlayed){
+            history.append(result) // add the result to history array
+            resultsVC.result = result // pass the result to History View Controller
+        }
+        
+        self.presentViewController(resultsVC, animated: true, completion: nil)
+    }
+    
+    func segueInCodeAndStoryborad(userPlayed: String){
+        self.userPlayed = userPlayed
+        self.performSegueWithIdentifier("paperPlayed", sender: self)
+    }
+    
+    func setupResultsViewController(){
+        gamePlay = GamePlay() // instance of GamePlay
+        
+        // Play a Game
+        if let result = gamePlay.resultOfRockPaperScissorsGame(self.userPlayed){
+            history.append(result) // add the result to history array
+            resultsVC.result = result // pass the result to History View Controller
+        }
     }
     
 
