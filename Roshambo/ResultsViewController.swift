@@ -33,16 +33,8 @@ class ResultsViewController: UIViewController {
         }
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        UIView.animateWithDuration(1.5){
-//            self.resultImageView.alpha = 1
-//        }
-//    }
-    
     @IBAction func playAgainButtonPressed(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
 }
